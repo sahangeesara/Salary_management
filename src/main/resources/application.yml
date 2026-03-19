@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hr_managment?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: admin@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          secret-key: my-super-secret-key-which-is-long
+
+
+#app:
+#  jwt:
+#    secret: bAGUpSTYQn1zDE03wyAC4v1iqqcGKdIexDoW4vo6WAp80gKcEMHTmKr9ya31fGFW
+#    expiration: 86400000
