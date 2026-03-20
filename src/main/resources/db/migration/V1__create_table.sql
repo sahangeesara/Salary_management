@@ -1,17 +1,43 @@
+CREATE TABLE IF NOT EXISTS `users` (
+                                                   `id`         INT          NOT NULL AUTO_INCREMENT,
+                                                   `username`   VARCHAR(255) NOT NULL UNIQUE,
+    `email`      VARCHAR(255) NOT NULL UNIQUE,
+    `password`   VARCHAR(255) NOT NULL,
+    `role`       VARCHAR(100) NULL DEFAULT NULL,
+    `enabled`    BOOLEAN      NULL DEFAULT 1,
+    `created_at` DATETIME     NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+
+
 CREATE TABLE employee (
-                          id INT AUTO_INCREMENT PRIMARY KEY,
-                          first_name VARCHAR(100) NOT NULL,
-                          last_name VARCHAR(100) NOT NULL,
-                          email VARCHAR(255) UNIQUE,
-                          phone VARCHAR(30),
-                          basic_salary DOUBLE NOT NULL,
-                          allowance DOUBLE DEFAULT 0,
-                          bonus DOUBLE DEFAULT 0,
-                          donation DOUBLE DEFAULT 0,
-                          department VARCHAR(100),
-                          designation VARCHAR(100),
-                          status VARCHAR(20) DEFAULT 'ACTIVE'
-);
+
+                        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                        user_id INT NULL UNIQUE,
+
+                        first_name VARCHAR(100) NOT NULL,
+                        last_name VARCHAR(100) NOT NULL,
+                        email VARCHAR(255) NULL,
+                        phone VARCHAR(30) NULL,
+
+                        basic_salary DOUBLE NOT NULL,
+                        allowance DOUBLE DEFAULT 0,
+                        bonus DOUBLE DEFAULT 0,
+                        donation DOUBLE DEFAULT 0,
+
+                        department VARCHAR(100) NULL,
+                        designation VARCHAR(100) NULL,
+                        status VARCHAR(20) DEFAULT 'ACTIVE',
+
+                        FOREIGN KEY (user_id)
+                        REFERENCES users (id)
+                        ON DELETE SET NULL
+                        ON UPDATE CASCADE
+
+) ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
 
 CREATE TABLE payroll (
                          id INT AUTO_INCREMENT PRIMARY KEY,

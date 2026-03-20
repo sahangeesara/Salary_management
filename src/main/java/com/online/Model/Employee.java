@@ -10,6 +10,7 @@ import lombok.ToString;
 public class Employee {
 
     private int id;
+    private int user_id;
     private String firstName;
     private String lastName;
     private String email;
