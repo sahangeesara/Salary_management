@@ -20,17 +20,17 @@ public class EmployeeController {
     }
 
     @PostMapping("/add")
-    public Boolean addEmployee(@RequestBody Employee employee){
+    public Boolean save(@RequestBody Employee employee){
         return service.addEmployee(employee);
     }
 
     @PutMapping("/update")
-    public Boolean updateEmployee(@RequestBody Employee employee){
+    public Boolean update(@RequestBody Employee employee){
         return service.updateEmployee(employee);
     }
 
     @DeleteMapping("/delete")
-    public void deleteEmployee(Integer id){
+    public void delete(Integer id){
             service.deleteEmployee(id);
     }
 }

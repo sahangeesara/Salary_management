@@ -1,4 +1,36 @@
 package com.online.controller;
 
+import com.online.Model.SalaryResponse;
+import com.online.service.SalaryResponseService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/salary-response")
+@CrossOrigin
+@RequiredArgsConstructor
 public class SalaryResponseController {
+    private SalaryResponseService service;
+
+    @GetMapping("/get-all")
+    public List<SalaryResponse> getAll(){
+        return service.getSalaryResponse();
+    }
+
+    @PostMapping("/add")
+    public Boolean save(@RequestBody SalaryResponse salaryResponse){
+        return service.addSalaryResponse(salaryResponse);
+    }
+
+    @PutMapping("/update")
+    public Boolean update(@RequestBody SalaryResponse salaryResponse){
+        return service.updateSalaryResponse(salaryResponse);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete(Integer id){
+        service.deleteSalaryResponse(id);
+    }
 }

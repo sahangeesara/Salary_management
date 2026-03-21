@@ -17,17 +17,17 @@ public class BasicSalaryController {
     }
 
     @PostMapping("/add")
-    public Boolean addEmployee(@RequestBody BasicSalary basicSalary){
+    public Boolean save(@RequestBody BasicSalary basicSalary){
         return service.addBasicSalary(basicSalary);
     }
 
     @PutMapping("/update")
-    public Boolean updateEmployee(@RequestBody BasicSalary basicSalary){
+    public Boolean updat(@RequestBody BasicSalary basicSalary){
         return service.updateBasicSalary(basicSalary);
     }
 
     @DeleteMapping("/delete")
-    public void deleteEmployee(Integer id){
+    public void delete(Integer id){
         service.deleteBasicSalary(id);
     }
 }

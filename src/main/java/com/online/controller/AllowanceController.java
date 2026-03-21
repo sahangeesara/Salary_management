@@ -18,17 +18,17 @@ public class AllowanceController {
     }
 
     @PostMapping("/add")
-    public Boolean addEmployee(@RequestBody Allowance allowance){
+    public Boolean save(@RequestBody Allowance allowance){
         return service.addAllowance(allowance);
     }
 
     @PutMapping("/update")
-    public Boolean updateEmployee(@RequestBody Allowance allowance){
+    public Boolean update(@RequestBody Allowance allowance){
         return service.updateAllowance(allowance);
     }
 
     @DeleteMapping("/delete")
-    public void deleteEmployee(Integer id){
+    public void delete(Integer id){
         service.deleteAllowance(id);
     }
 }
