@@ -1,23 +1,23 @@
 package com.online.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Overtime {
 
-    private int id;
-    private int employeeId;
+    private Integer id;
+    private Integer employeeId;
 
     private LocalDate date;
 
-    private double hours;
-    private double ratePerHour;
+    private Double hours;
+    private Double ratePerHour;
 
-    private double totalAmount;
+    private Double totalAmount;
 }

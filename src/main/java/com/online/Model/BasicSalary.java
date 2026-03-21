@@ -7,9 +7,8 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class SalaryRequest {
-
+public class BasicSalary {
+    private Integer id;
     private Integer employeeId;
-    private Double basicSalary;
-    private Double donation;
+    private Double amount;
 }

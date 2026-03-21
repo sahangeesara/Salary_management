@@ -1,34 +1,34 @@
 package com.online.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Payroll {
 
-    private int id;
-    private int employeeId;
+    private Integer id;
+    private Integer employeeId;
 
-    private double basicSalary;
-    private double epfEmployee;
-    private double epfEmployer;
-    private double etfEmployer;
-    private double allowance;
-    private double bonus;
-    private double donation;
+    private Double basicSalary;
+    private Double epfEmployee;
+    private Double epfEmployer;
+    private Double etfEmployer;
+    private Double allowance;
+    private Double bonus;
+    private Double donation;
 
-    private double overtimeAmount;
-    private int leaveDays;
-    private double leaveDeduction;
+    private Double overtimeAmount;
+    private Integer leaveDays;
+    private Double leaveDeduction;
 
-    private double totalDeduction;
-    private double netSalary;
-    private double employerCost;
+    private Double totalDeduction;
+    private Double netSalary;
+    private Double employerCost;
 
     private LocalDate payrollDate;
 }

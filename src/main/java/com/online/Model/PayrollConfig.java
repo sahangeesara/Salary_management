@@ -1,16 +1,16 @@
 package com.online.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class PayrollConfig {
 
-    private int id;
-    private double epfEmployeeRate; // default 0.08
-    private double epfEmployerRate; // default 0.12
-    private double etfRate;         // default 0.03
+    private Integer id;
+    private Double epfEmployeeRate; // default 0.08
+    private Double epfEmployerRate; // default 0.12
+    private Double etfRate;         // default 0.03
 }

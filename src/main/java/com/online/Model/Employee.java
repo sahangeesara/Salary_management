@@ -1,25 +1,28 @@
 package com.online.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.validation.constraints.Pattern;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
 
-    private int id;
-    private int user_id;
+    private Integer id;
+    private Integer user_id;
     private String firstName;
     private String lastName;
     private String email;
+
+    @Pattern(regexp = "^07[01245678]\\d{7}",message = "Phone number must be exactly 10 digits and start with 0")
     private String phone;
 
-    private double basicSalary;
-    private double allowance;
-    private double bonus;
-    private double donation;
+    private Double basicSalary;
+    private Double allowance;
+    private Double bonus;
+    private Double donation;
 
     private String department;
     private String designation;

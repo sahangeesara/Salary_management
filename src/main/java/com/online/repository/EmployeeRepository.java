@@ -1,12 +1,13 @@
-package com.online.service;
+package com.online.repository;
 
 import com.online.Model.Employee;
 
 import java.util.List;
 
-public interface EmployeeService {
+public interface EmployeeRepository {
     List<Employee> getEmployee();
     Boolean addEmployee(Employee employee);
     Boolean updateEmployee(Employee employee);
     void deleteEmployee(Integer id);
+
 }

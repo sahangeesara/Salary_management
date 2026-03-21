@@ -1,23 +1,23 @@
 package com.online.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class SalaryResponse {
 
-    private double basicSalary;
+    private Double basicSalary;
 
-    private double epfEmployee;
-    private double epfEmployer;
-    private double etfEmployer;
+    private Double epfEmployee;
+    private Double epfEmployer;
+    private Double etfEmployer;
 
-    private double donation;
-    private double totalDeduction;
-    private double netSalary;
+    private Double donation;
+    private Double totalDeduction;
+    private Double netSalary;
 
-    private double employerCost;
+    private Double employerCost;
 }
