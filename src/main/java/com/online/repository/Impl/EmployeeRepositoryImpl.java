@@ -16,7 +16,23 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public List<Employee> getEmployee() {
-        return List.of();
+        String sql = "SELECT * FROM employee";
+
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new Employee(
+                rs.getInt(1),
+                rs.getInt(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getString(5),
+                rs.getString(6),
+                rs.getDouble(7),
+                rs.getDouble(8),
+                rs.getDouble(9),
+                rs.getDouble(10),
+                rs.getString(11),
+                rs.getString(12),
+                rs.getString(13)
+        ));
     }
 
     public Boolean addEmployee(Employee employee) {
@@ -41,12 +57,26 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Boolean updateEmployee(Employee employee) {
-        return null;
+        String sql ="UPDATE employee SET user_id = ?, first_name = ?, last_name = ?, email = ?, phone = ?,basic_salary=?,department =?, designation= ?  WHERE id = ?";
+
+        return jdbcTemplate.update(
+                sql,
+                employee.getUser_id(),
+                employee.getFirstName(),
+                employee.getLastName(),
+                employee.getEmail(),
+                employee.getPhone(),
+                employee.getBasicSalary(),
+                employee.getDepartment(),
+                employee.getDesignation(),
+                employee.getId()
+        ) > 0;
     }
 
     @Override
     public void deleteEmployee(Integer id) {
-
+        String sql = "DELETE FROM employee WHERE id = ?";
+        jdbcTemplate.update(sql, id);
     }
 
 }

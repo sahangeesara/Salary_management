@@ -3,6 +3,7 @@ package com.online.repository.Impl;
 import com.online.Model.SalaryRequest;
 import com.online.repository.SalaryRequestRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,23 +12,50 @@ import java.util.List;
 @AllArgsConstructor
 public class SalaryRequestRepositoryImpl implements SalaryRequestRepository {
 
+    private final JdbcTemplate jdbcTemplate;
+
     @Override
     public List<SalaryRequest> getSalaryRequest() {
-        return List.of();
+        String sql="SELECT * FROM salary_request";
+        return jdbcTemplate.query(sql,
+                (rs, rowNum) -> new SalaryRequest(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getDouble(3),
+                        rs.getDouble(4)
+                )
+
+        );
     }
 
     @Override
     public Boolean addSalaryRequest(SalaryRequest salaryRequest) {
-        return null;
+        String sql = """
+                        INSERT INTO salary_request
+                        (employeeId,basicSalary,donation)
+                        VALUES(?,?,?)
+                        """;
+        return jdbcTemplate.update(sql,
+                    salaryRequest.getEmployeeId(),
+                    salaryRequest.getBasicSalary(),
+                    salaryRequest.getDonation()
+                )>0;
+
     }
 
     @Override
     public Boolean updateSalaryRequest(SalaryRequest salaryRequest) {
-        return null;
+        String sql ="UPDATE salary_request SET employeeId = ?,basicSalary = ?, donation = ? WHERE id = ?";
+        return jdbcTemplate.update(sql,
+                    salaryRequest.getEmployeeId(),
+                    salaryRequest.getBasicSalary(),
+                    salaryRequest.getDonation()
+                )>0;
     }
 
     @Override
     public void deleteSalaryRequest(Integer id) {
-
+        String sql ="DELETE FROM salary_request WHERE id = ?";
+        jdbcTemplate.update(sql,id);
     }
 }

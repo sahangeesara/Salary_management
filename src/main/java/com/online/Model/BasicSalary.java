@@ -9,6 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 public class BasicSalary {
     private Integer id;
-    private Integer employeeId;
+    private String roleName;
     private Double amount;
 }

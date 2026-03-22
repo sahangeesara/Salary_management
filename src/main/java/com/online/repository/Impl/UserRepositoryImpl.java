@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @AllArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
-    private final JdbcTemplate jdbcTemplate;
-
+    private final JdbcTemplate jdbcTemplate; 
 
     @Override
     public Boolean save(User userEntity) {

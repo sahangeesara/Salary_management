@@ -3,6 +3,7 @@ package com.online.repository.Impl;
 import com.online.Model.BasicSalary;
 import com.online.repository.BasicSalaryRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,23 +12,39 @@ import java.util.List;
 @AllArgsConstructor
 public class BasicSalaryRepositoryImpl implements BasicSalaryRepository {
 
+    private final JdbcTemplate jdbcTemplate;
     @Override
     public List<BasicSalary> getBasicSalary() {
-        return List.of();
+        String sql ="SELECT * FROM basic_salary";
+
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new BasicSalary(
+                rs.getInt(1),
+                rs.getString(2),
+                rs.getDouble(3)));
     }
 
     @Override
     public Boolean addBasicSalary(BasicSalary basicSalary) {
-        return null;
+        String sql ="INSERT INTO basic_salary (roleName,amount) VALUES (?,?)";
+        return   jdbcTemplate.update(sql,
+                basicSalary.getRoleName(),
+                basicSalary.getAmount()
+                )>0;
     }
 
     @Override
     public Boolean updateBasicSalary(BasicSalary basicSalary) {
-        return null;
+        String sql ="UPDATE basic_salary SET roleName = ?, amount = ? WHERE id = ?";
+        return  jdbcTemplate.update(sql,
+                    basicSalary.getRoleName(),
+                    basicSalary.getAmount(),
+                    basicSalary.getId()
+                )>0;
     }
 
     @Override
     public void deleteBasicSalary(Integer id) {
-
+        String sql ="DELETE FROM basic_salary WHERE id = ?";
+        jdbcTemplate.update(sql,id);
     }
 }
