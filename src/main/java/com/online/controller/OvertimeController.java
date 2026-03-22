@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/overtime")
 @CrossOrigin
 @RequiredArgsConstructor
 public class OvertimeController {
-    private OvertimeService service;
+    private final OvertimeService service;
 
     @GetMapping("/get-all")
     public List<Overtime> getAll(){

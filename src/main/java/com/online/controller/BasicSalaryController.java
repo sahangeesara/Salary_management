@@ -2,6 +2,7 @@ package com.online.controller;
 
 import com.online.Model.BasicSalary;
 import com.online.service.BasicSalaryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,8 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/besic-salary")
 @CrossOrigin
+@RequiredArgsConstructor
 public class BasicSalaryController {
-    private BasicSalaryService service;
+    private final BasicSalaryService service;
     @GetMapping("/get-all")
     public List<BasicSalary> getAll(){
         return service.getBasicSalary();

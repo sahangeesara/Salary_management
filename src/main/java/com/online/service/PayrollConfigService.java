@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PayrollConfigService {
     List<PayrollConfig> getPayrollConfig();
-    Boolean addPayrollConfig(PayrollConfig payrollConfig);
+    Boolean createPayrollConfig(PayrollConfig payrollConfig);
     Boolean updatePayrollConfig(PayrollConfig payrollConfig);
     void deletePayrollConfig(Integer id);
 }

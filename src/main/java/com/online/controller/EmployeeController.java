@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 public class EmployeeController {
-    private EmployeeService service;
+    private final EmployeeService service;
 
     @GetMapping("/get-all")
     public List<Employee> getAll(){

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class PayrollServiceImpl implements PayrollService {
-    private PayrollRepository repository;
+    private final PayrollRepository repository;
     @Override
     public List<Payroll> getPayroll() {
         return repository.getPayroll();

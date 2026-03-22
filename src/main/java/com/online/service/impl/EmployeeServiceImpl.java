@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeRepository repository;
+    private final EmployeeRepository repository;
 
     @Override
     public List<Employee> getEmployee() {

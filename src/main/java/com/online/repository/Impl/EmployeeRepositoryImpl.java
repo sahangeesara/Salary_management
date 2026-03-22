@@ -22,7 +22,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public Boolean addEmployee(Employee employee) {
         String sql = """
             INSERT INTO employee
-            (user_id, firstName, lastName, email, phone, basicSalary, department,designation)
+            (user_id, first_name, last_name, email, phone, basic_salary, department,designation)
             VALUES (?, ?, ?, ?, ?, ?, ?,?)
         """;
 

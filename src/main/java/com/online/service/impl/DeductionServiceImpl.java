@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class DeductionServiceImpl implements DeductionService {
-    private DeductionRepository repository;
+    private final DeductionRepository repository;
     @Override
     public List<Deduction> getDeduction() {
         return repository.getDeduction();

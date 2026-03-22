@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 public class PayrollController {
-    private PayrollService service;
+    private final PayrollService service;
 
     @GetMapping("/get-all")
     public List<Payroll> getAll(){

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class EmployeeLeaveServiceImpl implements EmployeeLeaveService {
-    private EmployeeLeaveRepository repository;
+    private final EmployeeLeaveRepository repository;
     @Override
     public List<EmployeeLeave> getEmployeeLeave() {
         return repository.getEmployeeLeave();

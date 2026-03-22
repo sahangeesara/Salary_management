@@ -3,6 +3,7 @@ package com.online.controller;
 import com.online.Model.Allowance;
 import com.online.Model.Employee;
 import com.online.service.AllowanceService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,8 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/allowance")
 @CrossOrigin
+@RequiredArgsConstructor
 public class AllowanceController {
-    private AllowanceService service;
+    private final AllowanceService service;
     @GetMapping("/get-all")
     public List<Allowance> getAll(){
         return service.getAllowance();

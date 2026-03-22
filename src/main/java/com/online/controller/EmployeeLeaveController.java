@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 public class EmployeeLeaveController {
-    private EmployeeLeaveService service;
+    private final EmployeeLeaveService service;
 
     @GetMapping("/get-all")
     public List<EmployeeLeave> getAll(){

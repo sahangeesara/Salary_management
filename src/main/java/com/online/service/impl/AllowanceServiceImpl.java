@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AllowanceServiceImpl implements AllowanceService {
 
-    private AllowanceRepository repository;
+    private final AllowanceRepository repository;
 
     @Override
     public List<Allowance> getAllowance() {

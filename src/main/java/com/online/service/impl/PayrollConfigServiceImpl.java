@@ -11,14 +11,16 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class PayrollConfigServiceImpl implements PayrollConfigService {
+
     private final PayrollConfigRepository repository;
+
     @Override
     public List<PayrollConfig> getPayrollConfig() {
         return repository.getPayrollConfig();
     }
 
     @Override
-    public Boolean addPayrollConfig(PayrollConfig payrollConfig) {
+    public Boolean createPayrollConfig(PayrollConfig payrollConfig) {
         return repository.addPayrollConfig(payrollConfig);
     }
 
@@ -29,6 +31,6 @@ public class PayrollConfigServiceImpl implements PayrollConfigService {
 
     @Override
     public void deletePayrollConfig(Integer id) {
-            repository.deletePayrollConfig(id);
+        repository.deletePayrollConfig(id);
     }
 }

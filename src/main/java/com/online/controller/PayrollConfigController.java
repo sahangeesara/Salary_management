@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 public class PayrollConfigController {
-    private PayrollConfigService service;
+    private final PayrollConfigService service;
 
     @GetMapping("/get-all")
     public List<PayrollConfig> getAll(){
@@ -21,7 +21,7 @@ public class PayrollConfigController {
 
     @PostMapping("/add")
     public Boolean save(@RequestBody PayrollConfig payrollConfig){
-        return service.addPayrollConfig(payrollConfig);
+        return service.createPayrollConfig(payrollConfig);
     }
 
     @PutMapping("/update")

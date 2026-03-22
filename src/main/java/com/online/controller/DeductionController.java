@@ -2,6 +2,7 @@ package com.online.controller;
 
 import com.online.Model.Deduction;
 import com.online.service.DeductionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,8 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/deduction")
 @CrossOrigin
+@RequiredArgsConstructor
 public class DeductionController {
-    private DeductionService service;
+    private final DeductionService service;
     @GetMapping("/get-all")
     public List<Deduction> getAll(){
         return service.getDeduction();

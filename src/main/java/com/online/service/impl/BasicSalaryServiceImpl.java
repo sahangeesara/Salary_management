@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BasicSalaryServiceImpl implements BasicSalaryService {
 
-    private BasicSalaryRepository repository;
+    private final BasicSalaryRepository repository;
     @Override
     public List<BasicSalary> getBasicSalary() {
         return repository.getBasicSalary();

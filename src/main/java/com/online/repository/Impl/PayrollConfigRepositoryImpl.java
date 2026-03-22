@@ -2,9 +2,13 @@ package com.online.repository.Impl;
 
 import com.online.Model.PayrollConfig;
 import com.online.repository.PayrollConfigRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
+@AllArgsConstructor
 public class PayrollConfigRepositoryImpl implements PayrollConfigRepository {
 
     @Override

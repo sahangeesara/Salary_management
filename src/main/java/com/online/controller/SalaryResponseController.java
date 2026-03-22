@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 public class SalaryResponseController {
-    private SalaryResponseService service;
+    private final SalaryResponseService service;
 
     @GetMapping("/get-all")
     public List<SalaryResponse> getAll(){
