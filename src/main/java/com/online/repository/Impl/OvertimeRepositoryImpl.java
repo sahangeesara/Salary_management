@@ -32,8 +32,8 @@ public class OvertimeRepositoryImpl implements OvertimeRepository {
     public Boolean addOvertime(Overtime overtime) {
         String sql = """
                         INSERT INTO overtime
-                        (employeeId,date,hours,ratePerHour,totalAmount)
-                        VALUE( ?,?,?,?,?,?)""";
+                        (employee_id,date,hours,rate_per_hour,total_amount)
+                        VALUE( ?,?,?,?,?)""";
 
         return jdbcTemplate.update(sql,
                     overtime.getEmployeeId(),
@@ -46,7 +46,7 @@ public class OvertimeRepositoryImpl implements OvertimeRepository {
 
     @Override
     public Boolean updateOvertime(Overtime overtime) {
-        String sql = "UPDATE overtime set employeeId = ?, date = ?, hours = ?, ratePerHour = ?, totalAmount = ? WHERE id = ? ";
+        String sql = "UPDATE overtime set employee_id = ?, date = ?, hours = ?, rate_per_hour = ?, total_amount = ? WHERE id = ? ";
         return jdbcTemplate.update(sql,
                           overtime.getEmployeeId(),
                           overtime.getDate(),

@@ -5,7 +5,7 @@ CREATE TABLE salary_request (
                                 donation DOUBLE
 );
 
-CREATE TABLE salary_response (
+CREATE TABLE IF NOT EXISTS salary_response (
                                  id INT AUTO_INCREMENT PRIMARY KEY,
                                  basic_salary DOUBLE,
                                  epf_employee DOUBLE,

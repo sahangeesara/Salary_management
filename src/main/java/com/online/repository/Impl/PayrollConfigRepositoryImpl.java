@@ -30,7 +30,7 @@ public class PayrollConfigRepositoryImpl implements PayrollConfigRepository {
     public Boolean addPayrollConfig(PayrollConfig payrollConfig) {
         String sql ="""
                         INSERT INTO payroll_config
-                         (epfEmployeeRate,epfEmployerRate,etfRate)
+                         (epf_employee_rate,epf_employer_rate,etf_rate)
                          VALUES(?,?,?)
                         """;
         return jdbcTemplate.update(sql,
@@ -42,7 +42,7 @@ public class PayrollConfigRepositoryImpl implements PayrollConfigRepository {
 
     @Override
     public Boolean updatePayrollConfig(PayrollConfig payrollConfig) {
-        String sql ="UPDATE payroll_config SET epfEmployeeRate = ?, epfEmployerRate = ?, etfRate = ? WHERE id = ?";
+        String sql ="UPDATE payroll_config SET epf_employee_rate = ?, epf_employer_rate = ?, etf_rate = ? WHERE id = ?";
 
         return jdbcTemplate.update(sql, payrollConfig.getEpfEmployeeRate(),
                                         payrollConfig.getEpfEmployerRate(),

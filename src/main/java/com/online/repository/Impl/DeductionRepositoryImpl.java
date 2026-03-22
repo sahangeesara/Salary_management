@@ -26,7 +26,7 @@ public class DeductionRepositoryImpl implements DeductionRepository {
 
     @Override
     public Boolean addDeduction(Deduction deduction) {
-        String sql = "INSERT INTO deduction (employeeId,type,amount)VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO deduction (employee_id,type,amount)VALUES(?,?,?,?,?)";
         return jdbcTemplate.update(sql,
                     deduction.getEmployeeId(),
                     deduction.getType(),

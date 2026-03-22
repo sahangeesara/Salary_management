@@ -25,7 +25,7 @@ public class BasicSalaryRepositoryImpl implements BasicSalaryRepository {
 
     @Override
     public Boolean addBasicSalary(BasicSalary basicSalary) {
-        String sql ="INSERT INTO basic_salary (roleName,amount) VALUES (?,?)";
+        String sql ="INSERT INTO basic_salary (role,amount) VALUES (?,?)";
         return   jdbcTemplate.update(sql,
                 basicSalary.getRoleName(),
                 basicSalary.getAmount()
@@ -34,7 +34,7 @@ public class BasicSalaryRepositoryImpl implements BasicSalaryRepository {
 
     @Override
     public Boolean updateBasicSalary(BasicSalary basicSalary) {
-        String sql ="UPDATE basic_salary SET roleName = ?, amount = ? WHERE id = ?";
+        String sql ="UPDATE basic_salary SET role = ?, amount = ? WHERE id = ?";
         return  jdbcTemplate.update(sql,
                     basicSalary.getRoleName(),
                     basicSalary.getAmount(),

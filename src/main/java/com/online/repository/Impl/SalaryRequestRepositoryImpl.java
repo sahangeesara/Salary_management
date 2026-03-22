@@ -32,7 +32,7 @@ public class SalaryRequestRepositoryImpl implements SalaryRequestRepository {
     public Boolean addSalaryRequest(SalaryRequest salaryRequest) {
         String sql = """
                         INSERT INTO salary_request
-                        (employeeId,basicSalary,donation)
+                        (employee_id,basic_salary,donation)
                         VALUES(?,?,?)
                         """;
         return jdbcTemplate.update(sql,

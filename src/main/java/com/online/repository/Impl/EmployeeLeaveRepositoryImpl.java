@@ -33,7 +33,7 @@ public class EmployeeLeaveRepositoryImpl implements EmployeeLeaveRepository {
     public Boolean addEmployeeLeave(EmployeeLeave employeeLeave) {
         String sql = """
                         INSERT INTO employee_leave
-                            (employeeId,leaveType,startDate,endDate, totalDays,status,reason)
+                            (employee_id,leave_type,start_date,end_date, total_days,status,reason)
                         VALUES(?,?,?,?,?,?,?)""";
         return jdbcTemplate.update(sql,
                     employeeLeave.getEmployeeId(),
@@ -48,7 +48,7 @@ public class EmployeeLeaveRepositoryImpl implements EmployeeLeaveRepository {
 
     @Override
     public Boolean updateEmployeeLeave(EmployeeLeave employeeLeave) {
-        String sql="UPDATE employee_leave set employeeId=?, leaveType = ?, startDate = ?, endDate = ?, totalDays = ?, status = ?, reason = ? WHERE id = ?";
+        String sql="UPDATE employee_leave set employee_id=?, leave_type = ?, start_date = ?, end_date = ?, total_days = ?, status = ?, reason = ? WHERE id = ?";
 
         return jdbcTemplate.update(sql,
                     employeeLeave.getEmployeeId(),

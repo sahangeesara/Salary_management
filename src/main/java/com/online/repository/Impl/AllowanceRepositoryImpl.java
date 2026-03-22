@@ -30,7 +30,7 @@ public class AllowanceRepositoryImpl implements AllowanceRepository {
     public Boolean addAllowance(Allowance allowance) {
         String sql = """
                 INSERT INTO allowance
-                (employeeId, type,amount) VALUES (?, ?,?)""";
+                (employee_id, type,amount) VALUES (?, ?,?)""";
 
         return jdbcTemplate.update(sql,
                  allowance.getEmployeeId(),
