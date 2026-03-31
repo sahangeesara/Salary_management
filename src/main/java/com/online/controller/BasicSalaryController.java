@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/besic-salary")
@@ -31,5 +32,10 @@ public class BasicSalaryController {
     @DeleteMapping("/delete")
     public void delete(Integer id){
         service.deleteBasicSalary(id);
+    }
+
+    @GetMapping("/get-by-role/{role}")
+    public Map<String, Double> getByRole(@PathVariable String role){
+        return service.getBasicSalaryByRole(role);
     }
 }

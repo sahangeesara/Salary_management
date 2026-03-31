@@ -10,4 +10,6 @@ public interface EmployeeRepository {
     Boolean updateEmployee(Employee employee);
     void deleteEmployee(Integer id);
 
+    Employee getEmployeeById(Integer id);
+    Boolean updateEmployeeById(Integer id,Employee employee);
 }

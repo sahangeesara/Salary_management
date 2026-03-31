@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class BasicSalaryServiceImpl implements BasicSalaryService {
@@ -30,5 +32,9 @@ public class BasicSalaryServiceImpl implements BasicSalaryService {
     @Override
     public void deleteBasicSalary(Integer id) {
         repository.deleteBasicSalary(id);
+    }
+    @Override
+    public Map<String, Double> getBasicSalaryByRole(String role) {
+        return repository.getBasicSalaryByRole(role);
     }
 }

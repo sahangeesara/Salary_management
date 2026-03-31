@@ -78,5 +78,35 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         String sql = "DELETE FROM employee WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
+    @Override
+    public Employee getEmployeeById(Integer id) {
+        String sql = "SELECT * FROM employee WHERE id = ?";
+
+        return jdbcTemplate.queryForObject(sql, (rs, rowNum) -> new Employee(
+                rs.getInt(1),
+                rs.getInt(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getString(5),
+                rs.getString(6),
+                rs.getDouble(7),
+                rs.getDouble(8),
+                rs.getDouble(9),
+                rs.getDouble(10),
+                rs.getString(11),
+                rs.getString(12),
+                rs.getString(13)
+        ), id);
+    }
+    @Override
+    public Boolean updateEmployeeById(Integer id,Employee employee) {
+        String sql = "UPDATE employee SET allowance = ?, bonus = ?, donation = ? WHERE id = ?";
+
+        return jdbcTemplate.update(sql,
+                employee.getAllowance(),
+                employee.getBonus(),
+                employee.getDonation(),
+                id) > 0;
+    }
 
 }

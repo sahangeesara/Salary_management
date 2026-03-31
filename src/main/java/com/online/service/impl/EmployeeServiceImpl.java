@@ -33,4 +33,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         repository.deleteEmployee(id);
     }
 
+    @Override
+    public Employee getEmployeeById(Integer id) {
+        return repository.getEmployeeById(id);
+    }
+
+    @Override
+    public Boolean updateEmployeeById(Integer id,Employee employee) {
+        return repository.updateEmployeeById(id,employee);
+    }
 }

@@ -9,4 +9,9 @@ public interface AllowanceRepository {
     Boolean addAllowance(Allowance Allowance);
     Boolean updateAllowance(Allowance Allowance);
     void deleteAllowance(Integer id);
+    List<Allowance> getAllowanceByType(String type);
+
+
 }
+
+

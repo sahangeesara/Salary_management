@@ -50,4 +50,17 @@ public class AllowanceRepositoryImpl implements AllowanceRepository {
         String sql = "DELETE FROM allowance WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
+
+    @Override
+    public List<Allowance> getAllowanceByType(String type) {
+        // Try wrapping type in backticks just in case it's a reserved keyword
+        String sql = "SELECT * FROM allowance WHERE `type` = ?";
+
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new Allowance(
+                rs.getInt("id"),
+                rs.getInt("employee_id"),
+                rs.getString("type"),
+                rs.getDouble("amount")
+        ), type);
+    }
 }

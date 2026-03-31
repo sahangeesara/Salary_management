@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @AllArgsConstructor
@@ -47,4 +48,15 @@ public class BasicSalaryRepositoryImpl implements BasicSalaryRepository {
         String sql ="DELETE FROM basic_salary WHERE id = ?";
         jdbcTemplate.update(sql,id);
     }
+
+    @Override
+    public Map<String, Double> getBasicSalaryByRole(String role) {
+        String sql = "SELECT amount FROM basic_salary WHERE role = ?";
+
+        Double amount = jdbcTemplate.queryForObject(sql, Double.class, role);
+
+        assert amount != null;
+        return Map.of("amount", amount);
+    }
+
 }

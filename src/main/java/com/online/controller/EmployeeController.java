@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("api/employees")
 @CrossOrigin
 @RequiredArgsConstructor
 public class EmployeeController {
@@ -32,5 +32,14 @@ public class EmployeeController {
     @DeleteMapping("/delete")
     public void delete(Integer id){
             service.deleteEmployee(id);
+    }
+
+        @GetMapping("/getById/{id}")
+    public Employee getEmployeeById(@PathVariable Integer id){
+        return service.getEmployeeById(id);
+    }
+    @PutMapping("/update/{id}")
+    public Boolean updateEmployee(@PathVariable Integer id, @RequestBody Employee employee){
+        return service.updateEmployeeById(id, employee);
     }
 }
