@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/bonus")
+@RequestMapping("api/bonus")
 @CrossOrigin
 @RequiredArgsConstructor
 public class BonusController {

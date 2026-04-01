@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/besic-salary")
+@RequestMapping("api/besic-salary")
 @CrossOrigin
 @RequiredArgsConstructor
 public class BasicSalaryController {

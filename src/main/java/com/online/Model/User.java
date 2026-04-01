@@ -19,4 +19,11 @@ public class User {
     private Role role;
     private Boolean enabled;
     private LocalDateTime createdAt;
+
+    public User(Long id,String username, String email, Role role) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.role = role;
+    }
 }

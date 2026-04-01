@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/payroll")
+@RequestMapping("api/payroll")
 @CrossOrigin
 @RequiredArgsConstructor
 public class PayrollController {

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/payroll-config")
+@RequestMapping("api/payroll-config")
 @CrossOrigin
 @RequiredArgsConstructor
 public class PayrollConfigController {

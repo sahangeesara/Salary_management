@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee-leave")
+@RequestMapping("api/employee-leave")
 @CrossOrigin
 @RequiredArgsConstructor
 public class EmployeeLeaveController {

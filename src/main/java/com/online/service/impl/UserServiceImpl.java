@@ -20,6 +20,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUser() {
-        return null;
+        return repository.getUser();
     }
 }

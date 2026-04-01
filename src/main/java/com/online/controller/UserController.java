@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("api/users")
 @CrossOrigin
 @RequiredArgsConstructor
 public class UserController {
@@ -16,5 +16,10 @@ public class UserController {
     @PostMapping("/signup")
     public Boolean signup(@RequestBody User user){
         return service.addUser(user);
+    }
+
+    @GetMapping("/get-all")
+    public Iterable<User> getAll(){
+        return service.getUser();
     }
 }
