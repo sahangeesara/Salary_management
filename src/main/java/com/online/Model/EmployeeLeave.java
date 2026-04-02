@@ -20,5 +20,5 @@ public class EmployeeLeave {
 
     private Integer totalDays;
     private String status; // PENDING / APPROVED / REJECTED
-    private String reason;
+        private String reason;
 }

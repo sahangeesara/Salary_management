@@ -66,7 +66,7 @@ public class PayrollController {
     public Map<String, Double>  getTotalETF(@PathVariable Integer employeeId) {
         return service.calculateETF(employeeId);
     }
-    @GetMapping("/totalAllowances/{employeeId}")
+        @GetMapping("/totalAllowances/{employeeId}")
     public Double getTotalAllowances(@PathVariable Integer employeeId) {
         return service.calculateAllowances(employeeId);
     }
