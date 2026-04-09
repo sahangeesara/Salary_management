@@ -57,7 +57,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Boolean updateEmployee(Employee employee) {
-        String sql ="UPDATE employee SET user_id = ?, first_name = ?, last_name = ?, email = ?, phone = ?,basic_salary=?,department =?, designation= ?  WHERE id = ?";
+        String sql ="UPDATE employee SET user_id = ?, first_name = ?, last_name = ?, email = ?, phone = ?,basic_salary=?,department =?, designation= ?,status= ?  WHERE id = ?";
 
         return jdbcTemplate.update(
                 sql,
@@ -69,6 +69,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
                 employee.getBasicSalary(),
                 employee.getDepartment(),
                 employee.getDesignation(),
+                employee.getStatus(),
                 employee.getId()
         ) > 0;
     }
@@ -100,12 +101,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
     @Override
     public Boolean updateEmployeeById(Integer id,Employee employee) {
-        String sql = "UPDATE employee SET allowance = ?, bonus = ?, donation = ? WHERE id = ?";
+        String sql = "UPDATE employee SET allowance = ?, bonus = ?, donation = ?, status= ? WHERE id = ?";
 
         return jdbcTemplate.update(sql,
                 employee.getAllowance(),
                 employee.getBonus(),
                 employee.getDonation(),
+                employee.getStatus(),
                 id) > 0;
     }
 

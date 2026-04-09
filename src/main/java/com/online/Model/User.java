@@ -20,10 +20,11 @@ public class User {
     private Boolean enabled;
     private LocalDateTime createdAt;
 
-    public User(Long id,String username, String email, Role role) {
+    public User(Long id,String username, String email,Boolean enabled ,Role role) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.enabled = enabled;
         this.role = role;
     }
 }

@@ -5,6 +5,7 @@ public enum Role {
     ROLE_USER,
     ROLE_MANAGER,
     ROLE_CASHIER,
+    ROLE_WAITER,
     ROLE_CHEF;
 
     public String authority(){

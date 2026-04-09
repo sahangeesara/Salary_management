@@ -33,6 +33,39 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public Boolean updateUser(User userEntity) {
+        String sql = """
+            UPDATE users 
+            SET username = ?, 
+                email = ?, 
+                password = CASE WHEN ? IS NOT NULL AND ? != '' THEN ? ELSE password END,
+                role = COALESCE(?, role),
+                enabled = ?
+            WHERE id = ?
+            """;
+
+        // Handle the Role Enum to String conversion
+        String roleStr = (userEntity.getRole() != null) ? userEntity.getRole().name() : null;
+
+        return jdbcTemplate.update(sql,
+                userEntity.getUsername(),
+                userEntity.getEmail(),
+                userEntity.getPassword(),
+                userEntity.getPassword(),
+                userEntity.getPassword(),
+                roleStr,
+                userEntity.getEnabled(),
+                userEntity.getId()
+        ) > 0;
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        String sql = "DELETE FROM users WHERE id = ?";
+        jdbcTemplate.update(sql, id);
+    }
+
+    @Override
     public List<User> getUser() {
         String sql = "SELECT * FROM users";
 
@@ -40,6 +73,7 @@ public class UserRepositoryImpl implements UserRepository {
                 rs.getLong("id"),
                 rs.getString("username"),
                 rs.getString("email"),
+                rs.getBoolean("enabled"),
                 Role.valueOf(rs.getString("role"))
                 ));
     }

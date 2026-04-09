@@ -18,6 +18,21 @@ public class UserController {
         return service.addUser(user);
     }
 
+    @PostMapping("/add")
+    public Boolean add(@RequestBody User user){
+        return service.addUser(user);
+    }
+
+    @PutMapping("/update")
+    public Boolean update(@RequestBody User user){
+        return service.updateUser(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        service.deleteUser(id);
+    }
+
     @GetMapping("/get-all")
     public Iterable<User> getAll(){
         return service.getUser();
