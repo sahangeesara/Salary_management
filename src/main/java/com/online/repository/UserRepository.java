@@ -9,4 +9,5 @@ public interface UserRepository {
     Boolean updateUser(User user);
     void deleteUser(Long id);
     List<User> getUser();
+    User getUserById(Long id);
 }

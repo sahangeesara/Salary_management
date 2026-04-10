@@ -1,7 +1,6 @@
 package com.online.controller;
 
 import com.online.Model.Allowance;
-import com.online.Model.Employee;
 import com.online.service.AllowanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

@@ -29,12 +29,12 @@ public class EmployeeController {
         return service.updateEmployee(employee);
     }
 
-    @DeleteMapping("/delete")
-    public void delete(Integer id){
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Integer id){
             service.deleteEmployee(id);
     }
 
-        @GetMapping("/getById/{id}")
+    @GetMapping("/getById/{id}")
     public Employee getEmployeeById(@PathVariable Integer id){
         return service.getEmployeeById(id);
     }

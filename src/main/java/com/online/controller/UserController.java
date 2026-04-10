@@ -37,4 +37,9 @@ public class UserController {
     public Iterable<User> getAll(){
         return service.getUser();
     }
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return service.getUserById(id);
+    }
 }

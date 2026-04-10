@@ -8,6 +8,7 @@ public interface EmployeeService {
     List<Employee> getEmployee();
     Boolean addEmployee(Employee employee);
     Boolean updateEmployee(Employee employee);
-    void deleteEmployee(Integer id);Employee getEmployeeById(Integer id);
+    void deleteEmployee(Integer id);
+    Employee getEmployeeById(Integer id);
     Boolean updateEmployeeById(Integer id,Employee employee);
 }

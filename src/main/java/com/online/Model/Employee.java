@@ -24,7 +24,7 @@ public class Employee {
     private Double bonus;
     private Double donation;
 
-    private String department;
-    private String designation;
+    private Department department;
+    private Designation designation;
     private String status; // ACTIVE / INACTIVE
 }

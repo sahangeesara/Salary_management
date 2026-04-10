@@ -77,4 +77,16 @@ public class UserRepositoryImpl implements UserRepository {
                 Role.valueOf(rs.getString("role"))
                 ));
     }
+
+    @Override
+    public User getUserById(Long id) {
+        String sql = "SELECT * FROM users WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, (rs, rowNum) -> new User(
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getBoolean("enabled"),
+                Role.valueOf(rs.getString("role"))
+        ), id);
+    }
 }
